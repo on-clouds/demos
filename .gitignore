@@ -1,0 +1,5 @@
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+/2023-kceu-rejekts/terraform/.terraform.lock.hcl
