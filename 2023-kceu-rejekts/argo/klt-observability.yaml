@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/keptn/lifecycle-toolkit
-    targetRevision: v0.7.0
-    path: examples/support/observability
+    repoURL: https://github.com/on-clouds/demos/
+    targetRevision: main
+    path: 2023-kceu-rejekts/support/observability
   destination:
     server: https://kubernetes.default.svc
     namespace: observability
