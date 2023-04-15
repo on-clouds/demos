@@ -16,5 +16,7 @@ spec:
       version: 0.1.2
   preDeploymentTasks:
     - app-pre-deploy-check-infra
+  postDeploymentTasks:
+    - app-post-deploy-k8sgpt
   preDeploymentEvaluations:
     - app-pre-deploy-eval-2

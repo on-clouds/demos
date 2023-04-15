@@ -2,6 +2,7 @@
 ARGO_NAMESPACE = argocd
 PODTATO_NAMESPACE = podtato-kubectl
 ARGO_SECRET = $(shell kubectl -n ${ARGO_NAMESPACE} get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo)
+GRAFANA_PORT_FORWARD = 3000
 
 .PHONY: install-observability
 install-observability:
@@ -34,3 +35,7 @@ deploy-version-2:
 deploy-version-3:
 	kubectl create namespace "$(PODTATO_NAMESPACE)" --dry-run=client -o yaml | kubectl apply -f -
 	kubectl apply -k app/version-3
+
+.PHONY: port-forward-grafana
+port-forward-grafana:
+	make -C support/observability port-forward-grafana GRAFANA_PORT_FORWARD=$(GRAFANA_PORT_FORWARD)

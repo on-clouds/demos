@@ -4,6 +4,7 @@ bases:
 resources:
   - app-pre-deploy.yaml
   - app-pre-deploy-eval.yaml
+  - app-post-deploy.yaml
 
 patchesStrategicMerge:
   - app.yaml

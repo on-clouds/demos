@@ -12,11 +12,12 @@ module "demo-cluster" {
       name    = "2023-kceu-rejekts"
     }
   ]
-  cluster_location = "us-central1-a"
-  cluster_name     = "kceu-demo-cluster"
-  keptn_enabled    = true
-  project_id       = var.project_id
-  node_count       = 3
+  cluster_location  = "us-central1-a"
+  cluster_name      = "kceu-demo-cluster"
+  keptn_enabled     = true
+  project_id        = var.project_id
+  node_count        = 2
+  node_machine_type = "e2-highcpu-4"
 }
 
 
