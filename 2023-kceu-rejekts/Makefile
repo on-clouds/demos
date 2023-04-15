@@ -1,5 +1,6 @@
 # renovate: datasource=github-tags depName=jaegertracing/jaeger-operator
 ARGO_NAMESPACE = argocd
+PODTATO_NAMESPACE = podtato-kubectl
 ARGO_SECRET = $(shell kubectl -n ${ARGO_NAMESPACE} get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo)
 
 .PHONY: install-observability

@@ -14,3 +14,7 @@ spec:
       version: 0.1.1
     - name: podtato-head-hat
       version: 0.1.2
+  preDeploymentTasks:
+    - app-pre-deploy-check-infra
+  preDeploymentEvaluations:
+    - app-pre-deploy-eval-2

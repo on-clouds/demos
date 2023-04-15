@@ -16,6 +16,7 @@ module "demo-cluster" {
   cluster_name     = "kceu-demo-cluster"
   keptn_enabled    = true
   project_id       = var.project_id
+  node_count       = 3
 }
 
 
