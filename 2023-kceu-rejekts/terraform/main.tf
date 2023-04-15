@@ -1,3 +1,7 @@
+variable "project_id" {
+  default = ""
+}
+
 module "demo-cluster" {
   source = "github.com/on-clouds/terraform"
   argo_enabled     = true
@@ -9,7 +13,7 @@ module "demo-cluster" {
   cluster_location = "us-central1-a"
   cluster_name     = "kceu-demo-cluster"
   keptn_enabled    = true
-  project_id       = "thschue-demos"
+  project_id       = var.project_id
 }
 
 
