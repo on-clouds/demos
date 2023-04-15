@@ -20,5 +20,3 @@ spec:
       version: 0.1.1
   preDeploymentTasks:
   - app-pre-deploy-check-infra
-#  preDeploymentEvaluations:
-#    - app-pre-deploy-eval-1

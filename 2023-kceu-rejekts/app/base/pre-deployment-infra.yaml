@@ -9,6 +9,6 @@ spec:
       url: https://raw.githubusercontent.com/thschue/environment-readiness-service/main/keptn/get_state.ts
     parameters:
       map:
-        url: http://environment-readiness-service.default.svc.cluster.local:8080/infraReadiness
+        url: http://environment-readiness-service.environment-readiness-service.svc.cluster.local:8080/infraReadiness
         timeout: "5"
         retries: "20"
