@@ -139,8 +139,6 @@ kind: ServiceMonitor
 metadata:
   labels:
     serviceapp: otel-collector
-  annotations:
-    argocd.argoproj.io/sync-wave: "5"
   name: otel-collector
   namespace: keptn-lifecycle-toolkit-system
 spec:
