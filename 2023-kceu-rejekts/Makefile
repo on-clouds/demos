@@ -2,6 +2,10 @@
 ARGO_NAMESPACE = argocd
 ARGO_SECRET = $(shell kubectl -n ${ARGO_NAMESPACE} get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo)
 
+.PHONY: install-observability
+install-observability:
+	make -C support/observability install
+
 .PHONY: port-forward-argocd
 port-forward-argocd:
 	@echo ""
@@ -15,3 +19,17 @@ port-forward-argocd:
 argo-get-password:
 	@echo $(ARGO_SECRET)
 
+.PHONY: deploy-version-1
+deploy-version-1:
+	kubectl create namespace "$(PODTATO_NAMESPACE)" --dry-run=client -o yaml | kubectl apply -f -
+	kubectl apply -k app/version-1
+
+.PHONY: deploy-version-2
+deploy-version-2:
+	kubectl create namespace "$(PODTATO_NAMESPACE)" --dry-run=client -o yaml | kubectl apply -f -
+	kubectl apply -k app/version-2
+
+.PHONY: deploy-version-3
+deploy-version-3:
+	kubectl create namespace "$(PODTATO_NAMESPACE)" --dry-run=client -o yaml | kubectl apply -f -
+	kubectl apply -k app/version-3
