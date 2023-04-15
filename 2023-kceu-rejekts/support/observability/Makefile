@@ -26,6 +26,7 @@ install:
 	@echo "Install OpenTelemetry Collector"
 	@echo "-------------------------------"
 	kubectl apply -f config/otel-collector.yaml -n "$(TOOLKIT_NAMESPACE)"
+	kubectl apply -f config/keptnconfig.yaml -n "$(TOOLKIT_NAMESPACE)"
 
 	@echo ""
 	@echo "-------------------------------"

@@ -9,5 +9,5 @@ spec:
       url: https://raw.githubusercontent.com/on-clouds/demos/main/2023-kceu-rejekts/keptn/k8sgpt.ts
     parameters:
       map:
-        url: http://k8sgpt.k8sgpt.svc.cluster.local:8080/analyze
+        url: http://k8sgpt-service.k8sgpt.svc.cluster.local:8080/analyze
         namespace: podtato-kubectl

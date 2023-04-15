@@ -6,6 +6,10 @@ metadata:
 spec:
   version: "0.1.2"
   workloads:
+    - name: podtato-head-left-leg
+      version: 0.1.1
+    - name: podtato-head-right-leg
+      version: 0.1.1
     - name: podtato-head-left-arm
       version: 0.1.1
     - name: podtato-head-frontend
