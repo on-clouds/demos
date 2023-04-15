@@ -14,8 +14,8 @@ port-forward-argocd:
 	@echo "CTRL-c to stop port-forward"
 
 	@echo ""
-	kubectl port-forward svc/argocd-server -n "$(ARGO_NAMESPACE)" 8080:443
-
+	kubectl port-forward svc/argo-cd-argocd-server -n "$(ARGO_NAMESPACE)" 8080:443 &
+	open http://localhost:8080
 .PHONY: argo-get-password
 argo-get-password:
 	@echo $(ARGO_SECRET)
