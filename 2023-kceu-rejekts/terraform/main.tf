@@ -1,5 +1,4 @@
 variable "project_id" {
-  default = ""
 }
 
 module "demo-cluster" {

@@ -1,0 +1,7 @@
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: jaeger
+  namespace: keptn-lifecycle-toolkit-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
