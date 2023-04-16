@@ -28,7 +28,7 @@ if (namespace == undefined) {
 let requrl = url + "?namespace=" + namespace;
 let response;
 
-let tries = 9;
+let tries = 0;
 while (tries < retries) (
     response = await fetch(requrl, {
         method: 'GET',
