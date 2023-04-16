@@ -2,7 +2,7 @@ variable "project_id" {
 }
 
 module "demo-cluster" {
-  source       = "github.com/on-clouds/terraform"
+  source       = "github.com/on-clouds/terraform?ref=0.0.0"
   argo_enabled = true
   cm_enabled   = true
   argo_envs    = [
