@@ -44,7 +44,7 @@ while (tries < retries) (
             // `data` is the parsed version of the JSON returned from the above endpoint.
             if (data.status == "OK") {
                 console.log("K8sGPT found no problems");
-                sendEvent(cpurl, context, "k8sgpt.failed", JSON.stringify(data.results), true);
+                sendEvent(cpurl, context, "k8sgpt.succeeded", "K8sGPT found no problems", true);
             } else {
                 console.log("K8sGPT found " + data.problems + " problems - retrying");
                 console.log(data.results)
