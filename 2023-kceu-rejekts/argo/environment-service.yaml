@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/thschue/environment-readiness-service
-    targetRevision: v0.0.3
+    targetRevision: v0.0.4
     path: deploy
   destination:
     server: https://kubernetes.default.svc

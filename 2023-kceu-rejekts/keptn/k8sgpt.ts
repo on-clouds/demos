@@ -1,16 +1,13 @@
 // Description: This function triggers a github action
 // Get Keptn context and variables
 import { sleep } from "https://deno.land/x/sleep/mod.ts";
+import { sendEvent, setContext } from "https://raw.githubusercontent.com/thschue/environment-readiness-service/main/keptn/keptn.ts"
 
-let params_raw = Deno.env.get("DATA");
-let context = Deno.env.get("CONTEXT");
-let params;
-
-if (params_raw != undefined) {
-    params = JSON.parse(params_raw);
-}
+const [ params, context ] = setContext();
 
 let url = params.url;
+let cpurl = params.cpurl;
+
 let namespace = params.namespace;
 let timeout = params.timeout;
 let retries = params.retries;
@@ -31,7 +28,7 @@ if (namespace == undefined) {
 let requrl = url + "?namespace=" + namespace;
 let response;
 
-let tries = 0;
+let tries = 9;
 while (tries < retries) (
     response = await fetch(requrl, {
         method: 'GET',
@@ -47,16 +44,17 @@ while (tries < retries) (
             // `data` is the parsed version of the JSON returned from the above endpoint.
             if (data.status == "OK") {
                 console.log("K8sGPT found no problems");
-                Deno.exit(0);
+                sendEvent(cpurl, context, "k8sgpt.failed", JSON.stringify(data.results), true);
             } else {
                 console.log("K8sGPT found " + data.problems + " problems - retrying");
                 console.log(data.results)
                 tries++;
                 if (tries >= retries) {
                     console.log("K8sGPT still found problems after " + retries + " retries - exiting");
-                    Deno.exit(1);
+                    sendEvent(cpurl, context, "k8sgpt.failed", JSON.stringify(data.results), false);
                 }
             }
         }),
         await sleep(timeout)
 )
+

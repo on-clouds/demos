@@ -10,4 +10,5 @@ spec:
     parameters:
       map:
         url: http://k8sgpt-service.k8sgpt.svc.cluster.local:8080/analyze
+        cpurl: http://environment-readiness-service.environment-readiness-service.svc.cluster.local:8080/event
         namespace: podtato-kubectl
