@@ -1,7 +1,7 @@
 // Description: This function triggers a github action
 // Get Keptn context and variables
 import { sleep } from "https://deno.land/x/sleep/mod.ts";
-import { sendEvent, setContext } from "https://raw.githubusercontent.com/thschue/environment-readiness-service/main/keptn/keptn.ts"
+import { sendEvent, setContext } from "https://raw.githubusercontent.com/on-clouds/environment-readiness-service/main/keptn/keptn.ts"
 
 const [ params, context ] = setContext();
 

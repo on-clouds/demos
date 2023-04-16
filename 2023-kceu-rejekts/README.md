@@ -4,7 +4,7 @@
 `terraform apply`
 
 *Connect to Cluster*
-`gcloud container clusters get-credentials kceu-demo-cluster --zone us-central1-a --project thschue-demos`
+`gcloud container clusters get-credentials kceu-demo-cluster --zone us-central1-a --project <project-name>`
 
 *Setup Observability*
 `make install-observability`

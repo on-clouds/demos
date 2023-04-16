@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/thschue/environment-readiness-service
+    repoURL: https://github.com/on-clouds/environment-readiness-service
     targetRevision: v0.0.5
     path: deploy
   destination:
