@@ -38,3 +38,8 @@ deploy-version-3:
 .PHONY: port-forward-grafana
 port-forward-grafana:
 	make -C support/observability port-forward-grafana GRAFANA_PORT_FORWARD=$(GRAFANA_PORT_FORWARD)
+
+.PHONY: port-forward-env
+port-forward-env:
+	kubectl port-forward -n environment-readiness-service svc/environment-readiness-service 8888:8080
+
