@@ -69,4 +69,4 @@ spec:
     metadata:
       labels:
         keptn.sh/pre-deployment-tasks: pre-deployment-check-frontend
-        app.kubernetes.io/version: 0.1.1
+        app.kubernetes.io/version: 0.1.2
