@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: environment-readiness-service
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/on-clouds/environment-readiness-service
+    targetRevision: v0.0.6
+    path: deploy
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: environment-readiness-service
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
