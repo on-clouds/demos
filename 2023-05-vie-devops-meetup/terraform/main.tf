@@ -2,19 +2,15 @@ variable "project_id" {
 }
 
 module "demo-cluster" {
-  source       = "github.com/on-clouds/terraform"
-  argo_enabled = true
-  cm_enabled   = true
-  argo_envs    = [
-    {
-      repoUrl = "https://github.com/on-clouds/demos"
-      path    = "2023-kceu-rejekts/argo"
-      name    = "2023-kceu-rejekts"
-    }
-  ]
+  source            = "github.com/on-clouds/terraform"
+  argo_enabled      = false
+  cm_enabled        = false
+  argo_envs         = []
   cluster_location  = "us-central1-a"
-  cluster_name      = "kceu-demo-cluster"
-  keptn_enabled     = true
+  cluster_name      = "vie-demo-cluster"
+  keptn_enabled     = false
+  k8sgpt_enabled    = true
+  k8sgpt_ai_token   = var.k8sgpt_api_key
   project_id        = var.project_id
   node_count        = 2
   node_machine_type = "e2-highcpu-4"

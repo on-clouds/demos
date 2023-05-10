@@ -1,5 +1,6 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
-
+*.tfvars
 /2023-kceu-rejekts/terraform/.terraform.lock.hcl
+/2023-05-vie-devops-meetup/terraform/terraform.tfvars
