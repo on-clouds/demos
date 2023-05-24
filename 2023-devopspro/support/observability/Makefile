@@ -13,6 +13,37 @@ install:
 	kubectl wait --for=condition=available deployment/jaeger-operator -n observability --timeout=300s
 	kubectl apply -f config/jaeger.yaml -n "$(TOOLKIT_NAMESPACE)"
 
+	@echo ""
+	@echo "------------------"
+	@echo "Configure Prometheus"
+	@echo "------------------"
+	kubectl create namespace monitoring --dry-run=client -o yaml | kubectl apply -f -
+	kubectl apply --server-side -f config/prometheus/setup
+	kubectl wait --for=condition=Established --all CustomResourceDefinition --namespace=monitoring
+
+	@echo ""
+	@echo "-------------------------------"
+	@echo "Install OpenTelemetry Collector"
+	@echo "-------------------------------"
+	kubectl apply -f config/otel-collector.yaml -n "$(TOOLKIT_NAMESPACE)"
+	kubectl apply -f config/keptnconfig.yaml -n "$(TOOLKIT_NAMESPACE)"
+
+	@echo ""
+	@echo "-------------------------------"
+	@echo "Wait for Resources to get ready"
+	@echo "-------------------------------"
+	kubectl wait --for=condition=available deployment/jaeger -n "$(TOOLKIT_NAMESPACE)" --timeout=120s
+	kubectl wait --for=condition=available deployment/otel-collector -n "$(TOOLKIT_NAMESPACE)" --timeout=120s
+
+	@echo ""
+	@echo "------------------"
+	@echo "Install Prometheus"
+	@echo "------------------"
+	kubectl apply -f config/prometheus/
+	kubectl wait --for=condition=available deployment/prometheus-operator -n monitoring --timeout=120s
+	kubectl wait --for=condition=available deployment/prometheus-adapter -n monitoring --timeout=120s
+	kubectl wait --for=condition=available deployment/kube-state-metrics -n monitoring --timeout=120s
+	kubectl wait --for=condition=available deployment/grafana -n monitoring --timeout=120s
 
 	@echo ""
 	@echo "#######################################################"
