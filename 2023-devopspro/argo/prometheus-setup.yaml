@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/on-clouds/demos
     targetRevision: feat/add_vdm_2023
-    path: support/observability/config/prometheus/setup
+    path: 2023-devopspro/support/observability/config/prometheus/setup
   syncPolicy:
     automated: {}
     syncOptions:

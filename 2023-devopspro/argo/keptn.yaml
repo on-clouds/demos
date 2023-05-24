@@ -14,7 +14,7 @@ spec:
     targetRevision: 0.2.3
   - repoURL: https://github.com/on-clouds/demos
     targetRevision: feat/add_vdm_2023
-    path: support/observability/config/klt-add-ons
+    path: 2023-devopspro/support/observability/config/klt-add-ons
   syncPolicy:
     automated: {}
     syncOptions:
