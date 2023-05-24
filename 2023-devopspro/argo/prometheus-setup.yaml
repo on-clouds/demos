@@ -1,20 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: keptn
+  name: prometheus-setup
   namespace: argocd
 spec:
   destination:
-    namespace: "keptn"
+    namespace: "monitoring"
     server: https://kubernetes.default.svc
   project: default
-  sources:
-  - chart: klt
-    repoURL: https://charts.lifecycle.keptn.sh
-    targetRevision: 0.2.3
-  - repoURL: https://github.com/on-clouds/demos
+  source:
+    repoURL: https://github.com/on-clouds/demos
     targetRevision: feat/add_vdm_2023
-    path: support/observability/config/klt-add-ons
+    path: support/observability/config/prometheus/setup
   syncPolicy:
     automated: {}
     syncOptions:
