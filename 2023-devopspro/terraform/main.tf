@@ -10,11 +10,11 @@ module "demo-cluster" {
       repoUrl = "https://github.com/on-clouds/demos"
       path    = "2023-devopspro/argo"
       name    = "2023-devopspro"
-      revision = "master"
+      revision = "feat/add_vdm_2023"
     }
   ]
   cluster_location  = "us-central1-a"
-  cluster_name      = "vie-demo-cluster"
+  cluster_name      = "devopspro-demo-cluster"
   keptn_enabled     = false
   k8sgpt_enabled    = true
   k8sgpt_ai_token   = var.k8sgpt_api_key
