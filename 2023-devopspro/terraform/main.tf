@@ -10,7 +10,7 @@ module "demo-cluster" {
       repoUrl = "https://github.com/on-clouds/demos"
       path    = "2023-devopspro/argo"
       name    = "2023-devopspro"
-      revision = "feat/add_vdm_2023"
+      targetRevision = "feat/add_vdm_2023"
     }
   ]
   cluster_location  = "us-central1-a"
