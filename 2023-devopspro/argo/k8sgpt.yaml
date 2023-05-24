@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://charts.k8sgpt.ai
-    chart: k8sgpt-operator
-    targetRevision: v0.3.0
+    repoURL: https://github.com/k8sgpt-ai/k8sgpt
+    targetRevision: feat/resources
+    path: container/manifests
   destination:
     server: https://kubernetes.default.svc
     namespace: k8sgpt

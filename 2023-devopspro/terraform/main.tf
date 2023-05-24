@@ -2,10 +2,17 @@ variable "project_id" {
 }
 
 module "demo-cluster" {
-  source            = "github.com/on-clouds/terraform"
-  argo_enabled      = false
-  cm_enabled        = false
-  argo_envs         = []
+  source       = "../../../terraform"
+  argo_enabled = true
+  cm_enabled   = true
+  argo_envs    = [
+    {
+      repoUrl = "https://github.com/on-clouds/demos"
+      path    = "2023-devopspro/argo"
+      name    = "2023-devopspro"
+      revision = "master"
+    }
+  ]
   cluster_location  = "us-central1-a"
   cluster_name      = "vie-demo-cluster"
   keptn_enabled     = false
