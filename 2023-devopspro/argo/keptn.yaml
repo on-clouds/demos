@@ -8,12 +8,10 @@ spec:
     namespace: "keptn"
     server: https://kubernetes.default.svc
   project: default
-  sources:
-  - chart: klt
+  source:
+    chart: klt
     repoURL: https://charts.lifecycle.keptn.sh
     targetRevision: 0.2.3
-  - repoURL: https://github.com/on-clouds/demos
-    targetRevision: feat/add_vdm_2023
     path: 2023-devopspro/support/observability/config/klt-add-ons
   syncPolicy:
     automated: {}
