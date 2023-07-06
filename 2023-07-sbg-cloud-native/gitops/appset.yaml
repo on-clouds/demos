@@ -58,10 +58,7 @@ spec:
           path : ' {{ targetPath }}'
         - repoURL: https://github.com/on-clouds/demos.git
           targetRevision: HEAD
-          path: 2023-07-sbg-cloud-native/gitops/{{ path.basename }}
-        - repoURL: https://github.com/on-clouds/demos.git
-          targetRevision: HEAD
-          ref: values
+          path: 2023-07-sbg-cloud-native/gitops-services/{{ path.basename }}
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ namespace }}'
