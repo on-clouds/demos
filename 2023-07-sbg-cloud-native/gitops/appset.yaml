@@ -5,7 +5,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/on-clouds/demo.git
+        repoURL: https://github.com/on-clouds/demos.git
         revision: HEAD
         files:
           - path: 2023-07-sbg-cloud-native/gitops/**/config.yaml
@@ -21,10 +21,10 @@ spec:
         helm:
           valueFiles:
           - $values/2023-07-sbg-cloud-native/gitops/{{ path.basename }}/values.yaml
-      - repoURL: https://github.com/on-clouds/demo.git
+      - repoURL: https://github.com/on-clouds/demos.git
         targetRevision: HEAD
         path: 2023-07-sbg-cloud-native/gitops/{{ path.basename }}
-      - repoURL: https://github.com/on-clouds/demo.git
+      - repoURL: https://github.com/on-clouds/demos.git
         targetRevision: HEAD
         ref: values
       destination:
