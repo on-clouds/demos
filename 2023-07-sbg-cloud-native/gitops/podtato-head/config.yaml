@@ -1,5 +1,5 @@
 repoURL: https://github.com/podtato-head/podtato-head
-targetRevision: HEAD
+targetRevision: ""
 targetPath: chart
 chart: podtato-head
 namespace: podtato-head
