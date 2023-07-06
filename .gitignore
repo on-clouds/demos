@@ -3,3 +3,4 @@
 *.tfstate.*
 
 /2023-kceu-rejekts/terraform/.terraform.lock.hcl
+/2023-07-sbg-cloud-native/terraform/.terraform/
