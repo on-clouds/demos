@@ -34,3 +34,39 @@ spec:
         automated: {}
         syncOptions:
           - CreateNamespace=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: services
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/on-clouds/demos.git
+        revision: HEAD
+        files:
+          - path: 2023-07-sbg-cloud-native/gitops-services/**/config.yaml
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      sources:
+        - repoURL: '{{ repoURL }}'
+          targetRevision: '{{ targetRevision }}'
+          path : ' {{ targetPath }}'
+        - repoURL: https://github.com/on-clouds/demos.git
+          targetRevision: HEAD
+          path: 2023-07-sbg-cloud-native/gitops/{{ path.basename }}
+        - repoURL: https://github.com/on-clouds/demos.git
+          targetRevision: HEAD
+          ref: values
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{ namespace }}'
+      syncPolicy:
+        automated: {}
+        syncOptions:
+          - CreateNamespace=true
+
