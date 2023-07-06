@@ -1,4 +1,4 @@
-repoURL: https://github.com/podtato-head/podtato-head
+repoURL: https://github.com/podtato-head/podtato-head-app
 targetRevision: HEAD
 targetPath: "deploy"
 namespace: "podtato-kubectl"
