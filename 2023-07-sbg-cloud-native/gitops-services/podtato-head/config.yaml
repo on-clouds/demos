@@ -1,4 +1,4 @@
 repoURL: https://github.com/on-clouds/demos.git
 targetRevision: HEAD
-targetPath: "2023-07-sbg-cloud-native/gitops-services/podtato-head/base"
+targetPath: "2023-07-sbg-cloud-native/gitops-services/podtato-head/version-1"
 namespace: "podtato-kubectl"
