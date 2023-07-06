@@ -1,5 +1,0 @@
-repoURL: ""
-targetRevision: ""
-targetPath: ""
-chart: oci://ghcr.io/podtato-head/charts/podtato-head:0.3.2
-namespace: podtato-head
