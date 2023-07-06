@@ -1,0 +1,4 @@
+repoURL: https://charts.lifecycle.keptn.sh
+targetRevision: v0.8.0
+chart: klt
+namespace: keptn
