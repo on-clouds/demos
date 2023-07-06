@@ -2,3 +2,4 @@ repoURL: https://charts.lifecycle.keptn.sh
 targetRevision: 0.2.4
 chart: klt
 namespace: keptn
+targetPath: ""
