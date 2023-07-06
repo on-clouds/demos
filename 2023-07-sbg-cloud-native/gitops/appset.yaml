@@ -55,7 +55,7 @@ spec:
       sources:
         - repoURL: '{{ repoURL }}'
           targetRevision: '{{ targetRevision }}'
-          path : ' {{ targetPath }}'
+          path : '{{ targetPath }}'
         - repoURL: https://github.com/on-clouds/demos.git
           targetRevision: HEAD
           path: 2023-07-sbg-cloud-native/gitops-services/{{ path.basename }}
