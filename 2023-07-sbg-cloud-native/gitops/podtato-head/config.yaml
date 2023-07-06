@@ -1,5 +1,5 @@
-repoURL: https://github.com/podtato-head/podtato-head
+repoURL: ""
 targetRevision: ""
-targetPath: chart
-chart: podtato-head
+targetPath: ""
+chart: oci://ghcr.io/podtato-head/charts/podtato-head:0.3.2
 namespace: podtato-head
