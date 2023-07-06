@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: platform
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/whizus/our-gitops-repo.git
+        revision: HEAD
+        files:
+          - path: platform/lab/**/config.yaml
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      sources:
+        - repoURL: '{{ repoURL }}'
+          targetRevision: '{{ targetRevision }}'
+          chart: '{{ chart }}'
+          helm:
+            valueFiles:
+            - $values/platform/lab/{{ path.basename }}/values.yaml
+        - repoURL: https://github.com/whizus/our-gitops-repo.git
+          targetRevision: HEAD
+          path: platform/lab/{{ path.basename }}
+        - repoURL: https://github.com/whizus/our-gitops-repo.git
+          targetRevision: HEAD
+          ref: values
+
+
+
