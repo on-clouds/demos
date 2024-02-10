@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8sgpt
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/k8sgpt-ai/k8sgpt
+    targetRevision: feat/resources
+    path: container/manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: k8sgpt
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
