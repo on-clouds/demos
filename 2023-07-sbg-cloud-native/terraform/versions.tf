@@ -4,7 +4,7 @@ terraform {
   required_providers {
     exoscale = {
       source  = "exoscale/exoscale"
-      version = "0.49.0"
+      version = "0.61.0"
     }
     helm = {
       source  = "hashicorp/helm"
